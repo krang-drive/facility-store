@@ -58,6 +58,14 @@ app.get('/facility', function (req, res) {
 
 //----------------------------------------------------------------------------//
 
+app.get('/', function (req, res) {
+
+  res.send("Hello, World!");
+
+});
+
+//----------------------------------------------------------------------------//
+
 app.post('/facility', function(req, res){
 
     facility.findOneAndUpdate({facilityID: req.body.facilityID}, req.body , {upsert:true})
