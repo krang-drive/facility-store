@@ -48,7 +48,7 @@ module.exports = facility;
 
 app.get('/facility', function (req, res) {
 
-  FacilityModel.find({facilityID: req.query.facilityID}, function (err, facility){
+  facility.find({facilityID: req.query.facilityID}, function (err, facility){
 
     res.send(facility);
 
@@ -58,7 +58,7 @@ app.get('/facility', function (req, res) {
 
 //----------------------------------------------------------------------------//
 
-app.post('/form', function(req, res){
+app.post('/facility', function(req, res){
 
     facility.findOneAndUpdate({facilityID: req.body.facilityID}, req.body , {upsert:true})
 
@@ -69,8 +69,8 @@ app.post('/form', function(req, res){
 
 //----------------------------------------------------------------------------//
 
-app.listen(8080, function() {
+app.listen(27017, function() {
 
-  console.log('Listening on port 8080!')
+  console.log('Listening on port 27017!')
 
 });
