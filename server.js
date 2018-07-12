@@ -33,7 +33,7 @@ var facilitySchema = new Schema({
 })
 
 //Create a model that uses the schema.
-var Facility = mongoose.model('Facility', facilitySchema);
+var facility = mongoose.model('facility', facilitySchema);
 
 //Make this available to Node app users.
 module.exports = facility;
