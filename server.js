@@ -42,7 +42,7 @@ module.exports = facility;
 //                               Function Calls                               //
 //----------------------------------------------------------------------------//
 
-app.get('/facility', function (req, res)) {
+app.get('/facility', function (req, res) {
 
   FacilityModel.find({facilityID: req.query.facilityID}, function (err, facility){
 
