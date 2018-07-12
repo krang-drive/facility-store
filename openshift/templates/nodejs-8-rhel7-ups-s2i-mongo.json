@@ -2,11 +2,11 @@
     "kind": "Template",
     "apiVersion": "v1",
     "metadata": {
-        "name": "nodejs-8-rhel7-ups-s2i-mongo",
+        "name": "nodejs-8-rhel7-s2i-mongo",
         "annotations": {
             "openshift.io/display-name": "Node.js 8 S2I Mongo",
             "description": "A Node.js application with a mongodb",
-            "tags": "ups, node, nodejs, node6, node.js, mongo, db, mongodb",
+            "tags": "node, nodejs, node6, node.js, mongo, db, mongodb",
             "iconClass": "icon-nodejs",
             "template.openshift.io/long-description": "This template defines resources needed to develop a NodeJS application, including a build configuration and application deployment configuration. It does includes a database.",
             "template.openshift.io/provider-display-name": "UPS"
@@ -14,7 +14,7 @@
     },
     "message": "The following service(s) have been created in your project: ${COMPONENT_NAME}.",
     "labels": {
-        "template": "nodejs-8-rhel7-ups-s2i-mongo"
+        "template": "nodejs-8-rhel7-s2i-mongo"
     },
     "objects": [{
             "kind": "Service",
@@ -101,8 +101,8 @@
                     "sourceStrategy": {
                         "from": {
                             "kind": "ImageStreamTag",
-                            "namespace": "icdc-openshift",
-                            "name": "nodejs-8-rhel7-ups:latest"
+                            "namespace": "krang",
+                            "name": "nodejs-8-rhel7:latest"
                         },
                         "env": [{
                             "name": "NODE_ENV",
@@ -445,14 +445,14 @@
         {
             "name": "LIVENESS_DELAY",
             "displayName": "Liveness Delay",
-            "value": "300",
+            "value": "30",
             "description": "Intial amount of time in seconds to wait to perform a liveness check.",
             "required": true
         },
         {
             "name": "READINESS_DELAY",
             "displayName": "Readiness Delay",
-            "value": "300",
+            "value": "30",
             "description": "Intial amount of time in seconds to wait to perform a readiness check.",
             "required": true
         },
@@ -460,21 +460,21 @@
             "name": "BUILD_CPU_REQUEST",
             "displayName": "Build CPU Request",
             "description": "The requested CPU for a build.",
-            "value": "100m",
+            "value": "300m",
             "required": true
         },
         {
             "name": "BUILD_MEM_REQUEST",
             "displayName": "Build Memory Request",
             "description": "The requested memory for a build",
-            "value": "256Mi",
+            "value": "512Mi",
             "required": true
         },
         {
             "name": "BUILD_CPU_LIMIT",
             "displayName": "Build CPU Limit",
             "description": "The limit of CPU to allow for a build",
-            "value": "200m",
+            "value": "300m",
             "required": true
         },
         {
@@ -488,14 +488,14 @@
             "name": "DEPLOY_CPU_REQUEST",
             "displayName": "Deploy CPU Request",
             "description": "The requested CPU for a deploy.",
-            "value": "100m",
+            "value": "300m",
             "required": true
         },
         {
             "name": "DEPLOY_MEM_REQUEST",
             "deployName": "Deploy Memory Request",
             "description": "The requested memory for a deploy",
-            "value": "256Mi",
+            "value": "512Mi",
             "required": true
         },
         {
@@ -532,7 +532,7 @@
             "name": "MONGODB_DATABASE",
             "displayName": "MongoDB Database Name",
             "description": "Name of the MongoDB database accessed.",
-            "value": "sampledb",
+            "value": "facilitydb",
             "required": true
         },
         {
