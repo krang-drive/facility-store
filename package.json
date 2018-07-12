@@ -1,0 +1,19 @@
+{
+  "name": "facility-store",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krang-drive/facility-store.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krang-drive/facility-store/issues"
+  },
+  "homepage": "https://github.com/krang-drive/facility-store#readme"
+}
