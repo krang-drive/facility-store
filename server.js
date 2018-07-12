@@ -14,8 +14,8 @@ var mongoose = require('mongoose');
 const host = process.env.DATABASE_HOST || "facility-store-db";
 const port = process.env.DATABASE_PORT || 27017;
 const database = process.env.DATABASE_NAME || "facilitydb";
-const user = process.env.DATABASE_USER || process.env.MONGODB_USER;
-const pass = process.env.DATABASE_PASS || process.env.MONGODB_PASSWORD;
+const user = process.env.DATABASE_USER || 'nodejs';
+const pass = process.env.DATABASE_PASS || 'nodejs';
 const url = `mongodb://${user}:${pass}@${host}:${port}/${database}`;
 
 //Connecting mongoose to MongoDB
