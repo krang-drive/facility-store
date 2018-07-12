@@ -11,11 +11,15 @@ const app = express();
 //Importing mongoose module
 var mongoose = require('mongoose');
 
-//Set up default mongoose connection
-var mongoDB = 'mongodb://facility-store-db';
+const host = process.env.DATABASE_HOST || "facility-store-db";
+const port = process.env.DATABASE_PORT || 27017;
+const database = process.env.DATABASE_NAME || "facilitydb";
+const user = process.env.DATABASE_USER || process.env.MONGODB_USER;
+const pass = process.env.DATABASE_PASS || process.env.MONGODB_PASSWORD;
+const url = `mongodb://${user}:${pass}@${host}:${port}/${database}`;
 
 //Connecting mongoose to MongoDB
-mongoose.connect(mongoDB);
+mongoose.connect(url);
 
 //Setting the schema to use mongoose.
 var Schema = mongoose.Schema;
