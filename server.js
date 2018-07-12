@@ -12,7 +12,7 @@ const app = express();
 var mongoose = require('mongoose');
 
 //Set up default mongoose connection
-var mongoDB = 'mongodb://localhost:27071/facility-store-db';
+var mongoDB = 'mongodb://facility-store-db';
 
 //Connecting mongoose to MongoDB
 mongoose.connect(mongoDB);
