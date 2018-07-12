@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/krang-drive/facility-store/issues"
   },
-  "homepage": "https://github.com/krang-drive/facility-store#readme"
+  "homepage": "https://github.com/krang-drive/facility-store#readme",
+  "dependencies": {
+    "expres": "0.0.5"
+  }
 }
