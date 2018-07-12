@@ -77,8 +77,8 @@ app.post('/facility', function(req, res){
 
 //----------------------------------------------------------------------------//
 
-app.listen(27017, function() {
+app.listen(8080, function() {
 
-  console.log('Listening on port 27017!')
+  console.log('Listening on port 8080!')
 
 });
