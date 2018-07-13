@@ -56,6 +56,7 @@ app.use(bodyParser.urlencoded({ extented: true }));
 
 //----------------------------------------------------------------------------//
 
+
 app.get('/facility', function (req, res) {
 
   facility.find({facilityID: req.query.facilityID}, function (err, facility){
@@ -78,10 +79,15 @@ app.get('/', function (req, res) {
 
 app.post('/facility', function(req, res){
 
-    facility.findOneAndUpdate({facilityID: req.body.facilityID}, req.body , {upsert:true})
+    facility.findOneAndUpdate({facilityID: req.body.facilityID}, req.body , {upsert:true}, function(err, doc) {
 
-    //Writing out the post information to console.
-    console.log('POST -> facilityID: ' + req.body.facilityID + ', location: ' + req.body.location);
+      //Writing out the post information to console.
+      if (!err) {
+        console.log('POST -> facilityID: ' + req.body.facilityID + ', location: ' + req.body.location);
+      } else {
+        console.error("An Error has occured :(")
+      }
+    });
 
 });
 
