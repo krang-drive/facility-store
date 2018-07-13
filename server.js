@@ -84,8 +84,10 @@ app.post('/facility', function(req, res){
       //Writing out the post information to console.
       if (!err) {
         console.log('POST -> facilityID: ' + req.body.facilityID + ', location: ' + req.body.location);
+        res(null,doc);
       } else {
         console.error("An Error has occured :(")
+        res(err,doc);
       }
     });
 
