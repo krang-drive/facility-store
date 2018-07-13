@@ -59,9 +59,9 @@ app.use(bodyParser.urlencoded({ extented: true }));
 
 app.get('/facility', function (req, res) {
 
-  facility.find({facilityID: req.query.facilityID}, function (err, facility){
+  facility.find({facilityID: req.query.facilityID}, function (err, docs){
 
-    res.send(facility);
+    res.send(docs);
 
   });
 
