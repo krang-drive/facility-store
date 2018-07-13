@@ -60,9 +60,11 @@ app.use(bodyParser.urlencoded({ extented: true }));
 app.get('/facility', function (req, res) {
 
   facility.find({}, function (err, docs){
-
-    res.send(docs);
-
+    if(!err) {
+      res.send(docs);
+    } else {
+      res.send(err);
+    }
   });
 
 });
@@ -71,7 +73,7 @@ app.get('/facility', function (req, res) {
 app.get('/facility/:id', function(req, res) {
   var id = req.params['id'];
   facility.find({facilityID: id }, function(err, docs) {
-    if(!err){
+    if(!err) {
       res.send(docs);
     } else {
       res.send(err);
