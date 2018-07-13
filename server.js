@@ -11,6 +11,10 @@ const app = express();
 //Importing mongoose module
 var mongoose = require('mongoose');
 
+//Importing body-parser module.
+var bodyParser = require('body-parser');
+
+//Setting up constant values for connecting to the database.
 const host = process.env.DATABASE_HOST || "facility-store-db";
 const port = process.env.DATABASE_PORT || 27017;
 const database = process.env.DATABASE_NAME || "facilitydb";
@@ -46,6 +50,12 @@ module.exports = facility;
 //                               Function Calls                               //
 //----------------------------------------------------------------------------//
 
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extented: true }));
+
+//----------------------------------------------------------------------------//
+
 app.get('/facility', function (req, res) {
 
   facility.find({facilityID: req.query.facilityID}, function (err, facility){
@@ -79,6 +89,6 @@ app.post('/facility', function(req, res){
 
 app.listen(8080, function() {
 
-  console.log('Listening on port 8080!')
+  console.log('Listening on port 27017!')
 
 });
